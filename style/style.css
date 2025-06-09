@@ -1,0 +1,986 @@
+/* 
+  🔧 STYLE.CSS — AVANTE DIAGNÓSTICO VETERINÁRIO
+  🐾 Dark Mode Edition - Interface 100% noturna
+  🎯 Projeto otimizado com foco em clareza, contraste, elegância e performance.
+  ✨ Ideal para demonstrar domínio de CSS no GitHub e portfólios.
+*/
+
+/* Importação de fonte */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* 🎨 Variáveis globais - Paleta e efeitos */
+:root {
+  --primary: #0f4d43;
+  --light: #f1f1f1;
+  --accent: #25D366;
+  --background: #0d1f1a;
+  --card-bg: #1b2e29;
+  --text: #e6f6f2;
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 375px) {
+  /* Ajuste fontes menores */
+  body {
+    font-size: 14px;
+  }
+
+  /* Ajuste larguras de containers para evitar overflow */
+  .container-principal {
+    padding: 10px;
+    width: 100%;
+  }
+
+  /* Exemplo: botões menores e mais compactos */
+  button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  /* Evite larguras fixas */
+  .imagem-principal {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1920px) {
+  .container-principal {
+    max-width: 100vw; /* garante que container não ultrapasse a largura da viewport */
+    padding: 20px 40px;
+  }
+
+  /* Ajuste de fontes para telas grandes e de alta densidade */
+  body {
+    font-size: 18px;
+  }
+}
+
+
+
+/* 🔗 Acessibilidade e comportamento global */
+html {
+  scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🖋️ Tipografia & corpo */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* 🔲 Contêiner */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================
+   🔷 HEADER
+============================ */
+header {
+  position: sticky;
+  top: 0;
+  background: var(--primary);
+  color: var(--light);
+  z-index: 1000;
+  box-shadow: var(--shadow-light);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+.logo {
+  width: 160px;
+  height: auto;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+.nav-list a {
+  color: var(--light);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav-list a:hover {
+  color: var(--accent);
+}
+.btn-menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  color: var(--light);
+  cursor: pointer;
+}
+
+/* ============================
+   🟢 BOTÕES
+============================ */
+.btn-cta,
+.btn-hero {
+  background: var(--accent);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.btn-cta:hover,
+.btn-hero:hover {
+  background: #1fb954;
+  transform: scale(0.98);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ============================
+   📷 HERO SECTION
+============================ */
+#hero {
+  position: relative;
+  height: 80vh;
+  background: url('../assets/hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: var(--light);
+  z-index: 1;
+  max-width: 700px;
+}
+.hero-content h1 {
+  font-size: 3em;
+  margin-bottom: 16px;
+}
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+/* ============================
+   📦 SEÇÕES GERAIS
+============================ */
+.block {
+  padding: 80px 0;
+}
+.block.alt {
+  background: #132720;
+}
+.block h2 {
+  text-align: center;
+  color: var(--light);
+  font-size: 2.4em;
+  margin-bottom: 40px;
+}
+.block h3 {
+  color: var(--accent);
+  margin: 20px 0 10px;
+}
+
+/* ============================
+   📌 LISTAS DECORADAS
+============================ */
+.regions-list,
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  list-style: none;
+}
+.regions-list li,
+.services-list li {
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 12px 24px;
+  border-radius: 25px;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.services-list li:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ============================
+   🧪 EXAMES
+============================ */
+.exams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.exam-details {
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+.exam-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  background: var(--primary);
+  color: var(--light);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.exam-details summary::after {
+  content: '▼';
+  transition: transform 0.3s ease;
+}
+.exam-details[open] summary::after {
+  transform: rotate(180deg);
+}
+.description-area {
+  padding: 20px 24px;
+  background: #152e26;
+  color: var(--light);
+}
+
+/* ============================
+   🩺 EQUIPE
+============================ */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.doctors-grid.featured {
+  display: flex !important;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.doctor-card {
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: var(--shadow-light);
+  transition: 0.3s;
+}
+.doctor-card:hover {
+  transform: translateY(-5px);
+}
+.doctor-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+.doctor-card a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.doctor-card a:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   🐶 PACIENTES - POLAROID
+============================ */
+.polaroid {
+  background: var(--card-bg);
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: var(--shadow-light);
+  width: 240px;
+  margin: auto;
+}
+.polaroid img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+.polaroid p {
+  color: var(--light);
+  font-weight: 500;
+}
+
+/* ============================
+    REGIOES DE ATENDIMENTO
+============================ */
+.regions-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+
+.regions-list li {
+  background: var(--light);
+  padding: 16px 28px;
+  border-radius: 30px;
+  font-weight: 500;
+  color: var(--primary);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-light);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: default;
+}
+
+.regions-list li::before {
+  content: "📍"; /* Pode trocar por SVG ou outro emoji */
+  font-size: 1.2em;
+  position: relative;
+  top: 1px;
+}
+
+.regions-list li:hover {
+  background-color: var(--accent);
+  color: white;
+  transform: scale(1.05);
+}
+
+
+/* ============================
+   💳 PAGAMENTOS
+============================ */
+.payment-card {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-light);
+  text-align: center;
+  transition: 0.3s;
+}
+.payment-card:hover {
+  box-shadow: var(--shadow-strong);
+}
+.payment-card h3 {
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.payment-card p {
+  color: var(--light);
+}
+
+/* ============================
+   📱 RESPONSIVO
+============================ */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background: var(--primary);
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .nav-list.show {
+    display: flex;
+  }
+  .btn-menu {
+    display: block;
+  }
+  .hero-content h1 {
+    font-size: 2em;
+  }
+  .hero-content p {
+    font-size: 1em;
+  }
+}
+
+/* ============================
+   ⏹ FOOTER
+============================ */
+footer {
+  background: var(--primary);
+  color: var(--light);
+  text-align: center;
+  padding: 30px 0;
+  font-size: 0.9em;
+}
+
+
+/* Botões principais com padronização */
+.btn-cta,
+.btn-hero,
+.contact-buttons a,
+.botao-petlove {
+  background-color: var(--accent) !important;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 12px 24px;
+  text-align: center;
+  transition: 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-cta:hover,
+.btn-hero:hover,
+.contact-buttons a:hover,
+.botao-petlove:hover {
+  filter: brightness(1.05);
+}
+
+/* ===================
+   ÁREA DE CONTATO
+=================== */
+.contact-area {
+  text-align: center;
+}
+
+.contact-area .contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+#contato-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+#contato-form input,
+#contato-form textarea {
+  padding: 12px;
+  width: 100%;
+  max-width: 260px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font: inherit;
+  font-size: 1em;
+  resize: vertical;
+}
+
+#contato-form input:focus,
+#contato-form textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.avaliacoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* imagens maiores */
+  gap: 28px;
+  margin: 40px auto;
+  padding: 0 20px;
+  max-width: 1280px;
+  justify-items: center;
+  box-sizing: border-box;
+}
+
+.avaliacoes-grid img {
+  width: 100%;
+  max-width: 460px;           /* aumenta ~35% o tamanho final */
+  height: auto;
+  object-fit: contain;        /* não corta o conteúdo */
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avaliacoes-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* =====================
+   BOTÃO DE REDIRECIONAMENTO
+====================== */
+.botao-petlove {
+  margin: 30px auto 0;
+  width: fit-content;
+}
+
+
+/* =========================
+   ÁREA DE AGENDAMENTO
+========================= */
+.fundo-agendamento {
+  background: linear-gradient(135deg, #f5fdf9, #e4f4eb);
+  padding: 60px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#agendamento-contato {
+  background: transparent;
+  color: var(--text);
+  box-shadow: none;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+
+.info-contato,
+.form-agendamento-wrapper {
+  flex: 1 1 400px;
+  min-width: 320px;
+}
+
+.info-contato h2,
+.form-agendamento-wrapper h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #165a4a;
+}
+
+/* ==================
+   QUIZ / AVALIAÇÕES
+================== */
+.quiz-container {
+  background: #fefefe;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-light);
+}
+
+.quiz-option {
+  font-size: 0.9em;
+  padding: 10px 20px;
+  background-color: #e0f2f1;
+  color: #0f4d43;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  transform: scale(1.02);
+}
+
+.quiz-option.certa {
+  background-color: #c8e6c9;
+}
+
+.quiz-option.errada {
+  background-color: #ffcdd2;
+}
+
+.quiz-next {
+  margin-top: 20px;
+  font-size: 0.9em;
+  padding: 10px 24px;
+}
+
+#progress-bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.quiz-result {
+  text-align: center;
+  background: #fdfaf6;
+  padding: 40px 20px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-light);
+}
+
+.quiz-badge {
+  font-size: 3em;
+}
+
+/* =====================
+   RODAPÉ
+===================== */
+footer {
+  background: var(--primary);
+  color: var(--light);
+  padding: 28px 0;
+  text-align: center;
+  font-size: 0.9em;
+  user-select: none;
+}
+
+/* ================================
+   MEDIA QUERIES (mobile first)
+================================ */
+@media (min-width: 481px) {
+  .hero-content h1 {
+    font-size: 2.4em;
+  }
+
+  .hero-content p {
+    font-size: 1.1em;
+  }
+
+  .block {
+    padding: 40px 20px;
+  }
+
+  .exams-grid,
+  .doctors-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #contato-form input,
+  #contato-form textarea {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background: #1c3b36;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    width: max-content;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .btn-menu {
+    display: block;
+  }
+}
+
+/* =============================
+   TEMA ESCURO PERMANENTE
+============================= */
+body {
+  background-color: #102620;
+  color: #d8f8ec;
+}
+
+header,
+footer {
+  background-color: #1a3a33;
+  color: #d8f8ec;
+}
+
+.block,
+.block.alt,
+.exam-details,
+.payment-card,
+.doctor-card,
+.description-area,
+.polaroid,
+.services-list li,
+.regions-list li,
+.quiz-container,
+.quiz-result,
+#agendamento-contato {
+  background-color: transparent !important;
+  color: #d8f8ec !important;
+  box-shadow: none !important;
+}
+
+.btn-cta,
+.btn-hero,
+.contact-buttons a {
+  background-color: #2e7d68 !important;
+  color: #f0fff8 !important;
+}
+
+.form-agendamento input,
+.form-agendamento select {
+  background-color: #1f4035;
+  border-color: #34d399;
+  color: #f0fff8;
+}
+
+.form-agendamento input::placeholder,
+.form-agendamento select option {
+  color: #a7e9d2;
+}
+
+.form-agendamento input:focus,
+.form-agendamento select:focus {
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.4);
+}
+
+/* =============================
+   Container geral do agendamento
+============================= */
+.fundo-agendamento {
+  background: linear-gradient(135deg, #102620, #1a3a33);
+  padding: 60px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: background 0.4s ease;
+}
+
+#agendamento-contato {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  text-align: center;
+}
+
+.info-contato,
+.form-agendamento-wrapper {
+  flex: 1 1 400px;
+  min-width: 320px;
+  text-align: center;
+}
+
+.info-contato h2,
+.form-agendamento-wrapper h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #d8f8ec;
+  transition: color 0.3s ease;
+}
+
+.info-contato p,
+.form-agendamento label {
+  color: #d8f8ec !important;
+}
+
+/* Parágrafos informativos */
+.info-contato p {
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.contact-buttons a {
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* =============================
+   Formulário de agendamento
+============================= */
+.form-agendamento {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+.form-agendamento label {
+  font-weight: 600;
+  font-size: 1rem;
+  align-self: flex-start;
+}
+
+.form-agendamento input,
+.form-agendamento select {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1.5px solid #c4f0dd;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* =============================
+   Responsividade Avançada
+============================= */
+@media (max-width: 768px) {
+  #agendamento-contato {
+    gap: 40px;
+  }
+  .info-contato,
+  .form-agendamento-wrapper {
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8em;
+  }
+
+  .hero-content p,
+  .btn-hero {
+    font-size: 1em;
+  }
+
+  .form-agendamento input,
+  .form-agendamento select {
+    width: 100%;
+  }
+
+  .quiz-container,
+  .quiz-result {
+    padding: 20px;
+  }
+
+  .nav-list.show {
+    right: 10px;
+  }
+
+  #agendamento-contato {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .contact-buttons a {
+    max-width: 100%;
+  }
+}
+
+/* =============================
+   Quiz
+============================= */
+.quiz-container {
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 16px;
+  background-image: url('assets/logo3d.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.quiz-option {
+  font-size: 0.9em;
+  padding: 10px 20px;
+  background-color: #2e7d68;
+  color: #fff;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  transform: scale(1.02);
+}
+
+.quiz-option.certa {
+  background-color: #c8e6c9;
+}
+
+.quiz-option.errada {
+  background-color: #ffcdd2;
+}
+
+.quiz-next {
+  margin-top: 20px;
+  font-size: 0.9em;
+  padding: 10px 24px;
+}
+
+#progress-bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #4CAF50;
+  transition: width 0.4s ease;
+}
+
+.quiz-result {
+  text-align: center;
+  background: #1e1e1e;
+  padding: 40px 20px;
+  border-radius: 16px;
+}
+
+.quiz-badge {
+  font-size: 3em;
+}
+
+.ocultar {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
+
+.avaliacoes-grid.expandido {
+  max-height: 2000px; /* suficientemente alto para expandir tudo */
+  transition: max-height 0.6s ease;
+}
