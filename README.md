@@ -15,7 +15,7 @@
 Site institucional desenvolvido do zero para a **Avante Diagnóstico Veterinário**, uma clínica móvel especializada em exames de imagem para pets.
 
 **HTML, CSS e JavaScript puro** — sem frameworks, sem construtor, só código limpo, escuro e funcional.  
-Do design à implementação: tudo feito por mim, sozinha, com foco em performance, clareza e experiência real de uso.
+Do design à implementação: tudo feito por mim, sozinha, com foco em UX e facilitar contato entre cliente e empresa.
 
 ---
 
@@ -52,6 +52,6 @@ https://user-images.githubusercontent.com/seu-usuario/avante-vet-site/demo.gif
 ## 🧰 Como testar localmente
 
 ```bash
-git clone https://github.com/seu-usuario/avante-vet-site.git
+git clone https://github.com/claracinci/avante-vet-site.git
 cd avante-vet-site
 
